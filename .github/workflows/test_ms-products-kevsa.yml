@@ -12,6 +12,7 @@ jobs:
       SPRING_PROFILES_ACTIVE: dev
       MONGO_URI: ${{ secrets.MONGO_URI }}
       MONGO_DB: ${{ vars.MONGO_DB }}
+      CLIENT_CERT_THUMBPRINT: ${{secrets.CLIENT_CERT_THUMBPRINT}}
     permissions:
       contents: read
     steps:
@@ -27,6 +28,7 @@ jobs:
           SPRING_PROFILES_ACTIVE: dev
           MONGO_URI: ${{ secrets.MONGO_URI }}
           MONGO_DB: ${{ vars.MONGO_DB }}
+          CLIENT_CERT_THUMBPRINT: ${{secrets.CLIENT_CERT_THUMBPRINT}}
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
